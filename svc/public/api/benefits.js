@@ -10,9 +10,10 @@ const getBenefits = async () => {
 }
 
 export const getBenefitsFromFile = async () => {
-  const result = await csv().fromFile(path.resolve(__dirname, `../../../data-imports/benefits-DE.csv`));
+  const result_DE = await csv().fromFile(path.resolve(__dirname, `../../../data-imports/benefits-DE.csv`));
   const result_ES = await csv().fromFile(path.resolve(__dirname, `../../../data-imports/benefits-ES.csv`));
-  return [...result, ...result_ES];
+  const result = [...result_DE, ...result_ES];
+  return result;
 }
 
 export const getBenefitsFromJsonFile = async () => {
