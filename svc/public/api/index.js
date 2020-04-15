@@ -4,7 +4,7 @@ import axios from "axios"
 // config.js
 export const EMPLOYEES_SVC_URL = 'http://localhost:3011'
 export const PROJECTS_SVC_URL = 'http://localhost:3012'
-
+export const BENEFITS_SVC_URL = 'http://localhost:3013'
 // projects.js
 // getProject(id)
 export const getProject = (id) => {
@@ -34,6 +34,11 @@ export const getProjectWithEmployees = async (projectId) => {
   }
 
   return result
+}
+
+const getBenefits = async () => {
+  const { data } = await axios.get(`${BENEFITS_SVC_URL}/benefits`);
+  return data;
 }
 
 // native node.js
