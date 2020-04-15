@@ -7,7 +7,7 @@ import API from './api/index'
 // middleware // każdy może coś dodać, ale tylko jeden może wysłać odpowiedź
 
 // TODO: npmjs:yargs
-const PORT = 3010
+const PORT = 4010
 
 app.get('/', (req, res, next) => {
   res.send("facade")
