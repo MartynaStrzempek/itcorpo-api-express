@@ -73,3 +73,7 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Webstorm
+.idea/
+.idea/workspace.xml
