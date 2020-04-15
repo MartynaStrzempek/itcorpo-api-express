@@ -26,5 +26,5 @@ app.get('/projects/:id', async (req, res, next) => {
 app.listen(PORT, async () => {
   console.log(`Listening on PORT:${PORT}`)
   const test = await API.getBenefitsFromFile();
-  //console.log(test);
+  console.log(test);
 })
