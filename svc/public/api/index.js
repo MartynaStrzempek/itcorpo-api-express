@@ -1,8 +1,9 @@
 
 import { getProjectWithEmployees } from './projects';
-import { getBenefitsFromFile } from './benefits';
+import { getMergeBenefits, getBenefitById } from './benefits';
 
 export default {
   getProjectWithEmployees,
-  getBenefitsFromFile
+  getMergeBenefits,
+  getBenefitById
 }

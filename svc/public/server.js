@@ -20,11 +20,25 @@ app.get('/projects/:id', async (req, res, next) => {
   const project = await API.getProjectWithEmployees(projectId)
   res.status(200).send(project)
 
-  next()
+  next();
 })
 
 app.listen(PORT, async () => {
   console.log(`Listening on PORT:${PORT}`)
-  const test = await API.getBenefitsFromFile();
-  //console.log(test);
 })
+
+app.get('/benefits', async (req, res, next) => {
+  const result = await API.getMergeBenefits();
+  res.send(result);
+  next();
+
+});
+
+// part 2
+app.get('/benefits/:id', async (req, res, next) => {
+  const id = req.params.id;
+  const result = await API.getBenefitById(id);
+  res.send(result);
+  next();
+
+});
