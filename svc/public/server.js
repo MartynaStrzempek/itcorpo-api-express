@@ -26,5 +26,5 @@ app.get('/projects/:id', async (req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT:${PORT}`)
-  console.log(`test wer`)
+  console.log(`test w`)
 })
