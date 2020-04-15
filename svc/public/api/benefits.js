@@ -22,3 +22,22 @@ export const getBenefitsFromJsonFile = async () => {
   const result = await fileReader.getContent(path.resolve(__dirname, `../../../data-imports/benefits-DE.json`));
   return result;
 }
+
+export const getMergeBenefits = async () => {
+  const benefitsFromDB = await getBenefits();
+  const benefitsFromFile = await getBenefitsFromFile();
+
+  benefitsFromFile.forEach((benefit, idx) => {
+    const modifiedBenefit = { ...benefit, beneficiary: { name: benefit.name, email: benefit.email } };
+    benefitsFromFile[idx] = modifiedBenefit;
+    delete modifiedBenefit.age;
+    delete modifiedBenefit.email;
+  });
+
+  return [...benefitsFromDB, ...benefitsFromFile];
+};
+
+export const getBenefitById = async (id) => {
+  const mergedBeneftis = await getMergeBenefits();
+  return mergedBeneftis.find(benefit => benefit.id === id);
+}
